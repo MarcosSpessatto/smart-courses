@@ -1,0 +1,13 @@
+{
+  "port": 3000,
+  "database": {
+    "database": "spotted",
+    "username": "root",
+    "password": "root",
+    "host": "localhost",
+    "port": 3306
+  },
+  "jwt": {
+    "expiresIn": 36000
+  }
+}

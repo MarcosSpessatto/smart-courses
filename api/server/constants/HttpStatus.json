@@ -1,0 +1,7 @@
+{
+  "internalError": 500,
+  "unauthorized": 401,
+  "forbidden": 403,
+  "success": 200,
+  "notFound": 404
+}

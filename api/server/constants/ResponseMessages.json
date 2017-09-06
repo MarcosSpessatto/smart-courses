@@ -1,0 +1,5 @@
+{
+  "notAllowed": "You are not allowed to access this page",
+  "internalError": "Internal Error",
+  "databaseError": "Error while trying connect to database"
+}
