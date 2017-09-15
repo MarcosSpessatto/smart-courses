@@ -9,18 +9,18 @@ class Navbar extends Component {
             <div className="navbar-fixed">
                 <nav className="navbar-color">
                     <div className="nav-wrapper">
-                        <Link to="/user" className="work-name">
+                        <Link to="user" className="work-name">
                             Smart Courses
                         </Link>
                         <ul id="nav-mobile" className="right hide-on-med-and-down">
                             <li>
-                                <Link to="/user"
+                                <Link to="user"
                                     activeClassName="active">
                                     Usuário
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/specialist"
+                                <Link to="specialist"
                                     activeClassName="active">
                                     Especialista
                                 </Link>
