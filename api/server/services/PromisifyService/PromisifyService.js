@@ -1,6 +1,8 @@
+const { promisify } = require('util');
+
 class PromisifyService {
 
-    constructor(promisify) {
+    constructor() {
         this.promisify = promisify;
     }
 
@@ -9,4 +11,4 @@ class PromisifyService {
     }
 }
 
-module.exports = promisify => new PromisifyService(promisify);
+module.exports = PromisifyService;

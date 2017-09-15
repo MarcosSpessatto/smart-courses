@@ -1,7 +1,8 @@
 const bodyParser = require('body-parser');
 const express = require('express');
 const cors = require('cors');
-const Database = require('./db');
+const db = require('./db/Database');
+const Database = new db();
 
 Database.initialize();
 
@@ -9,7 +10,6 @@ const app = express();
 
 app.options('*', cors());
 
-app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 

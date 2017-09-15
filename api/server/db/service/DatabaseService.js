@@ -1,6 +1,8 @@
+const Database = require('../Database');
+
 class DatabaseService {
-    constructor(Database) {
-        this.Database = Database;
+    constructor() {
+        this.Database = new Database();
     }
 
     async execute(query, params) {
@@ -34,6 +36,4 @@ class DatabaseService {
 
 }
 
-module.exports = (Database) => {
-    return new DatabaseService(Database);
-};
+module.exports = DatabaseService;

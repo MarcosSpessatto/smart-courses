@@ -1,6 +1,6 @@
 class ResponseService {
 
-    static makeResponse(status, data) {
+    makeResponse(status, data) {
         return {
             status,
             data: {
@@ -11,4 +11,4 @@ class ResponseService {
 
 }
 
-module.exports = () => new ResponseService();
+module.exports = ResponseService;

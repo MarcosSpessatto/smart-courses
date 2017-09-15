@@ -1,12 +1,14 @@
 const config = require('../config');
+const mysql = require('promise-mysql');
+const ResponseService = require('../services/ResponseService/ResponseService');
 const ResponseMessages = require('../constants/ResponseMessages.json');
 const HttpStatus = require('../constants/HttpStatus.json');
 
 class Database {
 
-    constructor(mysql, ResponseService) {
+    constructor() {
         this.mysql = mysql;
-        this.ResponseService = ResponseService;
+        this.ResponseService = new ResponseService();
         this.db = null;
         this.connection = null;
     }
@@ -32,6 +34,8 @@ class Database {
     }
 
     async getConnection() {
+        this.initialize();
+        
         try {
             this.connection = await this.db.getConnection();        
             return this.connection;
@@ -42,6 +46,4 @@ class Database {
     }
 }
 
-module.exports = (mysql, ResponseService) => {
-    return new Database(mysql, ResponseService);
-};
+module.exports = Database;
