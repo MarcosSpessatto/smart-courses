@@ -36,7 +36,8 @@ class CardItem extends Component {
 const mapStateToProps = state => ({
     area: state.area,
     modality: state.modality,
-    sector: state.sector
+    sector: state.sector,
+    teacher: state.teacher
 });
 
 export default connect(mapStateToProps)(CardItem);

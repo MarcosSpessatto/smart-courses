@@ -1,5 +1,5 @@
 import Component from 'inferno-component';
-import CardItem from '../../Common/Card-Item/CardItem';
+import CardItem from '../../Common/CardItem/CardItem';
 import Modal from '../../Common/Modal/Modal';
 import AreaForm from '../Area/AreaForm';
 import AreaList from '../Area/AreaList';
@@ -7,6 +7,8 @@ import ModalityForm from '../Modality/ModalityForm';
 import ModalityList from '../Modality/ModalityList';
 import SectorForm from '../Sector/SectorForm';
 import SectorList from '../Sector/SectorList';
+import TeacherForm from '../Teacher/TeacherForm';
+import TeacherList from '../Teacher/TeacherList';
 
 class SpecialistBox extends Component {
 
@@ -33,6 +35,12 @@ class SpecialistBox extends Component {
                 listComponent: SectorList,
                 formComponent: SectorForm
             },
+            {
+                title: 'Professores',
+                name: 'teacher',
+                listComponent: TeacherList,
+                formComponent: TeacherForm
+            },
             // {
             //     title: 'Funcionários',
             //     name: 'employees',
@@ -44,10 +52,6 @@ class SpecialistBox extends Component {
             //     name: 'courses'
             // },
             
-            // {
-            //     title: 'Professores',
-            //     name: 'teachers'
-            // }
         ];
     }
 
