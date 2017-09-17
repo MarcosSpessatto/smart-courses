@@ -46,7 +46,7 @@ class EmployeeController {
             if (employeeReceived) {
                 const employee = await this.EmployeeService.insert(employeeReceived);
 
-                responseToSend = this.ResponseService.makeResponse(HttpStatus.success,employeegroup);
+                responseToSend = this.ResponseService.makeResponse(HttpStatus.success, employee);
             }
             else
                 responseToSend = this.ResponseService.makeResponse(HttpStatus.badRequest, ResponseMessages.verifyParameters);
@@ -82,7 +82,7 @@ class EmployeeController {
         let responseToSend;
         try {
             if (employeeId) {
-                await this.GroupService.delete(employeeId);
+                await this.EmployeeService.delete(employeeId);
 
                 responseToSend = this.ResponseService.makeResponse(HttpStatus.success, employeeId);
             }

@@ -8,7 +8,7 @@ class EmployeeService {
 
     async getAll() {
         try {
-            const query = 'select e.* from ia.employee e order by e.name desc';
+            const query = 'select e.* from ia.employee e order by e.id asc';
             const employees = await this.DatabaseService.execute(query);
 
             if (!Array.isArray(employees))
@@ -35,11 +35,24 @@ class EmployeeService {
     }
 
     async insert(employee) {
-        const query = 'Insert into ia.employee Set ?';
-        try {
-            const result = await this.DatabaseService.execute(query, employee);
+        const queryToSaveEmploye = 'Insert into ia.employee Set ?';
+        const queryToSaveEmployeeAndSector = 'Insert into ia.employee_sector Set ?';
+        const employeeToSave = {
+            name: employee.name,
+            function: employee.function,
+            badge: employee.badge
+        };
 
+        try {
+            const result = await this.DatabaseService.execute(queryToSaveEmploye, employeeToSave);
             employee.id = result.insertId;
+
+            const employeeAndSector = {
+                employee: employee.id,
+                sector: parseInt(employee.sector)
+            }
+
+            await this.DatabaseService.execute(queryToSaveEmployeeAndSector, employeeAndSector)
 
             return new Employee(employee);
         }
@@ -61,9 +74,11 @@ class EmployeeService {
     }
 
     async delete(employeeId) {
-        const query = 'delete from ia.employee where id = ?';
+        const queryToDeleteEmployeeSector = 'delete from ia.employee_sector where employee = ?';
+        const queryToDeleteEmployee = 'delete from ia.employee where id = ?';
         try {
-            await this.DatabaseService.execute(query, employeeId);
+            await this.DatabaseService.execute(queryToDeleteEmployeeSector, employeeId);
+            await this.DatabaseService.execute(queryToDeleteEmployee, employeeId);
 
             return employeeId;
         }

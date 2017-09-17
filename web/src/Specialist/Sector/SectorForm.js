@@ -37,13 +37,14 @@ class SectorForm extends Component {
     }
 
     changeValue(event){
-        const atualState = this.props.sector;
-        atualState[event.target.name] = event.target.value;
-        this.props.changeValue(atualState);
+        const actualState = this.props.sector;
+
+        actualState[event.target.name] = event.target.value;
+        this.props.changeValue(actualState);
     }
 
     showEmptyAreasMessage() {
-        return <span>Você deve cadastrar áreas para poder cadastrar um setor.</span>
+        return <span>Você deve cadastrar <strong>áreas</strong> para poder cadastrar um setor.</span>
     }
 
     render() {
@@ -52,7 +53,8 @@ class SectorForm extends Component {
                 {
                     this
                         .props
-                        .areas.length
+                        .areas
+                        .length
                         ?
                         <form
                             className="col s12 m12"
@@ -73,7 +75,7 @@ class SectorForm extends Component {
                                     <select
                                         onChange={this.changeValue.bind(this)}
                                         name="area"> 
-                                        <option value="" disabled selected>Choose your option</option>
+                                        <option value="" disabled selected>Escolha a área</option>
                                         {
                                             this.renderAreaOptions()
                                         }

@@ -9,6 +9,8 @@ import SectorForm from '../Sector/SectorForm';
 import SectorList from '../Sector/SectorList';
 import TeacherForm from '../Teacher/TeacherForm';
 import TeacherList from '../Teacher/TeacherList';
+import EmployeeForm from '../Employee/EmployeeForm';
+import EmployeeList from '../Employee/EmployeeList';
 
 class SpecialistBox extends Component {
 
@@ -41,17 +43,17 @@ class SpecialistBox extends Component {
                 listComponent: TeacherList,
                 formComponent: TeacherForm
             },
-            // {
-            //     title: 'Funcionários',
-            //     name: 'employees',
-            //     listComponent: EmployeeList,
-            //     formComponent: EmployeeForm
-            // },
+            {
+                title: 'Funcionários',
+                name: 'employee',
+                listComponent: EmployeeList,
+                formComponent: EmployeeForm
+            },
             // {
             //     title: 'Cursos',
             //     name: 'courses'
             // },
-            
+
         ];
     }
 

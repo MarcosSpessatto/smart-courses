@@ -1,0 +1,5 @@
+export const SAVE_EMPLOYEE = 'SAVE_EMPLOYEE';
+export const GET_EMPLOYEES = 'GET_EMPLOYEES';
+export const REMOVE_EMPLOYEE = 'REMOVE_EMPLOYEE';
+export const CHANGE_VALUE = 'CHANGE_VALUE';
+export const CLEAR = 'CLEAR';
