@@ -1,18 +1,15 @@
 import * as types from './AreaActionTypes';
-import Materialize from 'materialize-css';
 
-const INITIAL_STATE = { area: { name: '' }, areas: [], quantityOfAreas: 0 };
+const INITIAL_STATE = { area: { name: '' }, areas: [], areaLength: 0 };
 
 export default (state = INITIAL_STATE, action) => {
     if (action.type === types.SAVE_AREA) {
-        Materialize.toast(`Salvo com sucesso`, 4000);
         return { ...state, area: action.payload };
     }
     else if (action.type === types.GET_AREAS) {
-        return { ...state, areas: action.payload, quantityOfAreas: action.payload.length };
+        return { ...state, areas: action.payload, areaLength: action.payload.length };
     }
     else if (action.type === types.REMOVE_AREA) {
-        Materialize.toast(`Excluído com sucesso`, 4000);
         return { ...state };
     }
     else if (action.type === types.CHANGE_VALUE) {

@@ -34,7 +34,7 @@ class ModalityService {
         }
     }
 
-    async insert(secmodalitytor) {
+    async insert(modality) {
         const query = 'Insert into ia.modality Set ?';
         try {
             const result = await this.DatabaseService.execute(query, modality);
@@ -60,7 +60,7 @@ class ModalityService {
         }
     }
 
-    async delete(smodalityId) {
+    async delete(modalityId) {
         const query = 'delete from ia.modality where id = ?';
         try {
             await this.DatabaseService.execute(query, modalityId);

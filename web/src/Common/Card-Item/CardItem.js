@@ -6,8 +6,8 @@ import './CardItem.css';
 
 class CardItem extends Component {
 
-    getQuantityOfItems(){
-        return this.props[this.props.name].length;
+    getQuantityOfItems() {
+        return this.props[this.props.name][`${this.props.name}Length`];
     }
 
     render() {
@@ -34,7 +34,8 @@ class CardItem extends Component {
     }
 }
 const mapStateToProps = state => ({
-    areas: state.area.areas
+    area: state.area,
+    modality: state.modality
 });
 
 export default connect(mapStateToProps)(CardItem);

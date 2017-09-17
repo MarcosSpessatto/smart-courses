@@ -3,6 +3,8 @@ import CardItem from '../../Common/Card-Item/CardItem';
 import Modal from '../../Common/Modal/Modal';
 import AreaForm from '../Area/AreaForm';
 import AreaList from '../Area/AreaList';
+import ModalityForm from '../Modality/ModalityForm';
+import ModalityList from '../Modality/ModalityList';
 
 class SpecialistBox extends Component {
 
@@ -13,13 +15,21 @@ class SpecialistBox extends Component {
         this.cards = [
             {
                 title: 'Áreas',
-                name: 'areas',
+                name: 'area',
                 listComponent: AreaList,
                 formComponent: AreaForm
             },
+            {
+                title: 'Modalidade de Cursos',
+                name: 'modality',
+                listComponent: ModalityList,
+                formComponent: ModalityForm
+            },
             // {
             //     title: 'Funcionários',
-            //     name: 'employees'
+            //     name: 'employees',
+            //     listComponent: EmployeeList,
+            //     formComponent: EmployeeForm
             // },
             // {
             //     title: 'Cursos',

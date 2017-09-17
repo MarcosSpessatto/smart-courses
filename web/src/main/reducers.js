@@ -1,11 +1,14 @@
 import { combineReducers } from 'redux';
 
+import DialogReducers from '../Common/Dialog/DialogReducers';
+
 import AreaReducers from '../Specialist/Area/AreaReducers';
-import ErrorReducer from './ErrorReducer';
+import ModalityReducers from '../Specialist/Modality/ModalityReducers';
 
 const rootReducer = combineReducers({
     area: AreaReducers,
-    error: ErrorReducer
+    dialog: DialogReducers,
+    modality: ModalityReducers
 });
 
 export default rootReducer;

@@ -4,10 +4,9 @@ import { connect } from 'inferno-redux';
 import { bindActionCreators } from 'redux';
 import { saveArea, changeValue } from './AreaActions';
 
+export default class EmployeeForm extends Component {
 
-class AreaForm extends Component {
-
-    saveArea(event) {
+    saveModality(event) {
         event.preventDefault();
         this.props.saveArea(this.props.area);
     }
@@ -17,7 +16,7 @@ class AreaForm extends Component {
             <div className="row">
                 <form
                     className="col s12 m12"
-                    onSubmit={this.saveArea.bind(this)}>
+                    onSubmit={this.saveModality.bind(this)}>
 
                     <div className="row">
                         <div className="input-field col s12 m12">
@@ -38,7 +37,7 @@ class AreaForm extends Component {
 }
 
 const mapStateToProps = state => ({
-    area: state.area.area
+    modality: state.modality.modality
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
@@ -46,4 +45,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     changeValue
 }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(AreaForm)
+export default connect(mapStateToProps, mapDispatchToProps)(EmployeeForm)

@@ -2,14 +2,13 @@ import Component from 'inferno-component';
 import SubmitButton from '../../Common/Forms/SubmitButton';
 import { connect } from 'inferno-redux';
 import { bindActionCreators } from 'redux';
-import { saveArea, changeValue } from './AreaActions';
+import { saveModality, changeValue } from './ModalityActions';
 
+class ModalityForm extends Component{
 
-class AreaForm extends Component {
-
-    saveArea(event) {
+    saveModality(event) {
         event.preventDefault();
-        this.props.saveArea(this.props.area);
+        this.props.saveModality(this.props.modality);
     }
 
     render() {
@@ -17,17 +16,17 @@ class AreaForm extends Component {
             <div className="row">
                 <form
                     className="col s12 m12"
-                    onSubmit={this.saveArea.bind(this)}>
+                    onSubmit={this.saveModality.bind(this)}>
 
                     <div className="row">
                         <div className="input-field col s12 m12">
                             <input
                                 id="name"
                                 type="text"
-                                value={this.props.area.name}
+                                value={this.props.modality.type}
                                 onChange={this.props.changeValue}
                                 className="validate" />
-                            <label for="name">Nome</label>
+                            <label for="name">Tipo da modalidade</label>
                         </div>
                         <SubmitButton></SubmitButton>
                     </div>
@@ -38,12 +37,12 @@ class AreaForm extends Component {
 }
 
 const mapStateToProps = state => ({
-    area: state.area.area
+    modality: state.modality.modality
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    saveArea,
+    saveModality,
     changeValue
 }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(AreaForm)
+export default connect(mapStateToProps, mapDispatchToProps)(ModalityForm)
