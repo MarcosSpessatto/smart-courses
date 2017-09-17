@@ -1,5 +1,6 @@
 import Component from 'inferno-component';
 import { Link } from 'inferno-router';
+import Logo from '../../main/logo';
 import './Navbar.css';
 
 class Navbar extends Component {
@@ -12,6 +13,13 @@ class Navbar extends Component {
                         <Link to="user" className="work-name">
                             Smart Courses
                         </Link>
+                        <a
+                            className="brand-logo center"
+                            href="https://infernojs.org/"
+                            target="_blank">
+                            <span className="made-with">Made With</span>
+                            <Logo width="50" height="40" />
+                        </a>
                         <ul id="nav-mobile" className="right hide-on-med-and-down">
                             <li>
                                 <Link to="user"

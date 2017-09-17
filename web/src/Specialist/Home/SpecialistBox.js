@@ -5,6 +5,8 @@ import AreaForm from '../Area/AreaForm';
 import AreaList from '../Area/AreaList';
 import ModalityForm from '../Modality/ModalityForm';
 import ModalityList from '../Modality/ModalityList';
+import SectorForm from '../Sector/SectorForm';
+import SectorList from '../Sector/SectorList';
 
 class SpecialistBox extends Component {
 
@@ -25,6 +27,12 @@ class SpecialistBox extends Component {
                 listComponent: ModalityList,
                 formComponent: ModalityForm
             },
+            {
+                title: 'Setores',
+                name: 'sector',
+                listComponent: SectorList,
+                formComponent: SectorForm
+            },
             // {
             //     title: 'Funcionários',
             //     name: 'employees',
@@ -35,10 +43,7 @@ class SpecialistBox extends Component {
             //     title: 'Cursos',
             //     name: 'courses'
             // },
-            // {
-            //     title: 'Setor',
-            //     name: 'sectors'
-            // },
+            
             // {
             //     title: 'Professores',
             //     name: 'teachers'

@@ -8,7 +8,7 @@ class ModalityService {
 
     async getAll() {
         try {
-            const query = 'select m.* from ia.modality m order by m.type desc';
+            const query = 'select m.* from ia.modality m order by m.id asc';
             const modalities = await this.DatabaseService.execute(query);
 
             if (!Array.isArray(modalities))

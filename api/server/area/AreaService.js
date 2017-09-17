@@ -8,7 +8,7 @@ class AreaService {
 
     async getAll() {
         try {
-            const query = 'select a.* from ia.area a order by a.name desc';
+            const query = 'select a.* from ia.area a order by a.id asc';
             const areas = await this.DatabaseService.execute(query);
 
             if (!Array.isArray(areas))
