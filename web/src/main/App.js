@@ -1,5 +1,5 @@
 import Component from 'inferno-component';
-import Navbar from './Navbar/Navbar';
+import Navbar from '../Common/Navbar/Navbar';
 
 import './App.css';
 

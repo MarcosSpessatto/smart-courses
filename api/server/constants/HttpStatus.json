@@ -3,5 +3,6 @@
   "unauthorized": 401,
   "forbidden": 403,
   "success": 200,
-  "notFound": 404
+  "notFound": 404,
+  "badRequest": 400
 }

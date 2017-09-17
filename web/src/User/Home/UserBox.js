@@ -1,14 +1,14 @@
 import Component from 'inferno-component';
 
-class HomeSpecialist extends Component {
+class UserBox extends Component {
 
     render() {
         return (
             <div>
-                <h1>Specialist</h1>
+                <h1>user</h1>
             </div>
         );
     }
 }
 
-export default HomeSpecialist;
+export default UserBox;

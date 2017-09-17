@@ -1,4 +1,5 @@
 {
   "internalError": "Internal Error",
-  "databaseError": "Error while trying connect to database"
+  "databaseError": "Error while trying connect to database",
+  "verifyParameters": "Please verify Parameters"
 }

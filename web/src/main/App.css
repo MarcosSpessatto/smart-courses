@@ -1,0 +1,40 @@
+.dark-primary-color    { background: #00796B; }
+.default-primary-color { background: #009688; }
+.light-primary-color   { background: #B2DFDB; }
+.text-primary-color    { color: #FFFFFF; }
+.accent-color          { background: #7C4DFF; }
+.primary-text-color    { color: #212121; }
+.secondary-text-color  { color: #757575; }
+.divider-color         { border-color: #BDBDBD; }
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 80px;
+}
+
+.App-header {
+  background-color: #f8f8f8;
+  height: 150px;
+  padding: 20px;
+  color: #3d464d;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+code {
+  color: #e73a37;
+}
+.clear-text-transform{
+  text-transform: none !important;
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+.bold{
+  font-weight: bold;
+}
