@@ -16,7 +16,7 @@ export default (state = INITIAL_STATE, action) => {
         return { ...state, teacher: { name: action.payload.value } };
     }
     else if (action.type === types.CLEAR) {
-        return { ...state, area: {} };
+        return { ...state, teacher: {} };
     }
 
     return state;

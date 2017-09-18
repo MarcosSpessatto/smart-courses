@@ -8,7 +8,10 @@ class EmployeeService {
 
     async getAll() {
         try {
-            const query = 'select e.* from ia.employee e order by e.id asc';
+            const query = `select e.id, e.name, e.function, e.badge, s.name as sector, a.name as area from ia.employee e
+                            inner join ia.sector s on s.id = e.sector
+                            inner join ia.area a on a.id = s.area
+                            order by e.id asc`;
             const employees = await this.DatabaseService.execute(query);
 
             if (!Array.isArray(employees))
@@ -36,23 +39,10 @@ class EmployeeService {
 
     async insert(employee) {
         const queryToSaveEmploye = 'Insert into ia.employee Set ?';
-        const queryToSaveEmployeeAndSector = 'Insert into ia.employee_sector Set ?';
-        const employeeToSave = {
-            name: employee.name,
-            function: employee.function,
-            badge: employee.badge
-        };
 
         try {
-            const result = await this.DatabaseService.execute(queryToSaveEmploye, employeeToSave);
+            const result = await this.DatabaseService.execute(queryToSaveEmploye, employee);
             employee.id = result.insertId;
-
-            const employeeAndSector = {
-                employee: employee.id,
-                sector: parseInt(employee.sector)
-            }
-
-            await this.DatabaseService.execute(queryToSaveEmployeeAndSector, employeeAndSector)
 
             return new Employee(employee);
         }
@@ -74,11 +64,9 @@ class EmployeeService {
     }
 
     async delete(employeeId) {
-        const queryToDeleteEmployeeSector = 'delete from ia.employee_sector where employee = ?';
-        const queryToDeleteEmployee = 'delete from ia.employee where id = ?';
+        const query = 'delete from ia.employee where id = ?';
         try {
-            await this.DatabaseService.execute(queryToDeleteEmployeeSector, employeeId);
-            await this.DatabaseService.execute(queryToDeleteEmployee, employeeId);
+            await this.DatabaseService.execute(query, employeeId);
 
             return employeeId;
         }

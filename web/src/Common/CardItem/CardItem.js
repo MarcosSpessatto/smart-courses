@@ -38,7 +38,8 @@ const mapStateToProps = state => ({
     modality: state.modality,
     sector: state.sector,
     teacher: state.teacher,
-    employee: state.employee
+    employee: state.employee,
+    course: state.course
 });
 
 export default connect(mapStateToProps)(CardItem);

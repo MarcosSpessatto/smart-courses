@@ -34,9 +34,9 @@ export const removeEmployee = (employeeId) => {
     }
 }
 
-export const changeValue = (atualEmployee) => {
+export const changeValue = (actualEmployee) => {
     return dispatch => {
-        dispatch({ type: employeeTypes.CHANGE_VALUE, payload: atualEmployee });
+        dispatch({ type: employeeTypes.CHANGE_VALUE, payload: actualEmployee });
     }
 }
 

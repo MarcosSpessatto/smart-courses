@@ -1,29 +1,29 @@
 import Component from 'inferno-component';
 import { connect } from 'inferno-redux';
 import { bindActionCreators } from 'redux';
-import { getEmployees, removeEmployee } from './EmployeeActions';
+import { getCourses, removeCourse } from './CourseActions';
 import TableItems from '../../Common/Table/TableItems';
 
-class SectorList extends Component {
+class CourseList extends Component {
 
     constructor() {
         super();
-        this.header = ['Id', 'Nome', 'Função', 'Bloqueado', 'Crachá', 'Setor', 'Área'];
+        this.header = ['Id', 'Nome', 'Inicio', 'Fim', 'Modalidade'];
     }
 
     componentWillMount() {
-        this.props.getEmployees();
+        this.props.getCourses();
     }
 
     deleteItem(itemToRemove, index) {
-        this.props.removeEmployee(itemToRemove.id);
+        this.props.removeCourse(itemToRemove.id);
     }
 
     render() {
         return (
             <TableItems
                 header={this.header}
-                listData={this.props.employees}
+                listData={this.props.courses}
                 onDelete={this.deleteItem.bind(this)}>
             </TableItems>
         );
@@ -31,12 +31,12 @@ class SectorList extends Component {
 }
 
 const mapStateToProps = state => ({
-    employees: state.employee.employees
+    courses: state.course.courses
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    getEmployees,
-    removeEmployee
+    getCourses,
+    removeCourse
 }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(SectorList);
+export default connect(mapStateToProps, mapDispatchToProps)(CourseList);

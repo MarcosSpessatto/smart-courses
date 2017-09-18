@@ -8,7 +8,9 @@ class SectorService {
 
     async getAll() {
         try {
-            const query = 'select s.* from ia.sector s order by s.id asc';
+            const query = `select s.id, s.name, a.name as area from ia.sector s 
+                            inner join ia.area a on a.id = s.area
+                            order by s.id asc`;
             const sectors = await this.DatabaseService.execute(query);
 
             if (!Array.isArray(sectors))

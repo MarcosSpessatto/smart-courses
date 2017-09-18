@@ -34,9 +34,9 @@ export const removeSector = (sectorId) => {
     }
 }
 
-export const changeValue = (atualSector) => {
+export const changeValue = (actualSector) => {
     return dispatch => {
-        dispatch({ type: sectorTypes.CHANGE_VALUE, payload: atualSector });
+        dispatch({ type: sectorTypes.CHANGE_VALUE, payload: actualSector });
     }
 }
 

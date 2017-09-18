@@ -5,7 +5,8 @@ class Employee {
         this.function = employee.function;
         this.blocked = employee.blocked === 1 ? 'Sim' : 'Não' ;
         this.badge = employee.badge;
-        this.teacher = employee.teacher;
+        this.sector = employee.sector;
+        this.area = employee.area;
     }
 }
 

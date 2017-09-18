@@ -14,7 +14,7 @@ class ModalityService {
             if (!Array.isArray(modalities))
                 return [new Modality(modalities)];
 
-            return modalities.map(modality => new Modality(modalities));
+            return modalities.map(modality => new Modality(modality));
 
         } catch (error) {
             throw error;

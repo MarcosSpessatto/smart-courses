@@ -20,7 +20,6 @@ class DatabaseService {
             return this.parseDataFromDatabase(returnedData);
         }
         catch (error) {
-            await connection.rollback();
             throw error;
         }
     }

@@ -11,6 +11,8 @@ import TeacherForm from '../Teacher/TeacherForm';
 import TeacherList from '../Teacher/TeacherList';
 import EmployeeForm from '../Employee/EmployeeForm';
 import EmployeeList from '../Employee/EmployeeList';
+import CourseForm from '../Course/CourseForm';
+import CourseList from '../Course/CourseList';
 
 class SpecialistBox extends Component {
 
@@ -49,10 +51,12 @@ class SpecialistBox extends Component {
                 listComponent: EmployeeList,
                 formComponent: EmployeeForm
             },
-            // {
-            //     title: 'Cursos',
-            //     name: 'courses'
-            // },
+            {
+                title: 'Cursos',
+                name: 'course',
+                listComponent: CourseList,
+                formComponent: CourseForm
+            },
 
         ];
     }

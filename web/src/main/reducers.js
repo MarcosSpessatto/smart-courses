@@ -7,6 +7,7 @@ import ModalityReducers from '../Specialist/Modality/ModalityReducers';
 import SectorReducers from '../Specialist/Sector/SectorReducers';
 import TeacherReducers from '../Specialist/Teacher/TeacherReducers';
 import EmployeeReducers from '../Specialist/Employee/EmployeeReducers';
+import CourseReducers from '../Specialist/Course/CourseReducers';
 
 const rootReducer = combineReducers({
     area: AreaReducers,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
     modality: ModalityReducers,
     sector: SectorReducers,
     teacher: TeacherReducers,
-    employee: EmployeeReducers
+    employee: EmployeeReducers,
+    course: CourseReducers
 });
 
 export default rootReducer;
