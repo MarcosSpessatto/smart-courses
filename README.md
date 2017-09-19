@@ -1,0 +1,1 @@
+Example of course recommendation system using InfernoJs, Docker, NodeJs and MySQL

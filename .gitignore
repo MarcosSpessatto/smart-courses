@@ -25,6 +25,7 @@ api/node_modules
 /api/npm-debug.log*
 /api/yarn-debug.log*
 /api/yarn-error.log*
+*.log
 
 *.orig
 /web/package-lock.json
