@@ -1,0 +1,2 @@
+export const SEARCH_COURSES = 'SEARCH_COURSES';
+export const CHANGE_VALUE = 'CHANGE_VALUE';

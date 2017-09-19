@@ -102,7 +102,10 @@ class EmployeeForm extends Component {
                                     </select>
                                     <label>Setor do funcionário</label>
                                 </div>
-                                <SubmitButton></SubmitButton>
+                                <SubmitButton
+                                    text="Salvar"
+                                    icon="send">
+                                </SubmitButton>
                             </div>
                         </form>
                         :

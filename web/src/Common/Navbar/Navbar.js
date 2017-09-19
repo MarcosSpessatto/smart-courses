@@ -1,6 +1,7 @@
 import Component from 'inferno-component';
 import { Link } from 'inferno-router';
 import Logo from '../../main/logo';
+import Loading from '../Loading/Loading';
 import './Navbar.css';
 
 class Navbar extends Component {
@@ -36,6 +37,7 @@ class Navbar extends Component {
                         </ul>
                     </div>
                 </nav>
+                <Loading></Loading>
             </div>
         );
     }

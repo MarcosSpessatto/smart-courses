@@ -4,7 +4,7 @@ import { connect } from 'inferno-redux';
 import { bindActionCreators } from 'redux';
 import { saveModality, changeValue } from './ModalityActions';
 
-class ModalityForm extends Component{
+class ModalityForm extends Component {
 
     saveModality(event) {
         event.preventDefault();
@@ -28,7 +28,10 @@ class ModalityForm extends Component{
                                 className="validate" />
                             <label for="name">Tipo da modalidade</label>
                         </div>
-                        <SubmitButton></SubmitButton>
+                        <SubmitButton
+                            text="Salvar"
+                            icon="send">
+                        </SubmitButton>
                     </div>
                 </form>
             </div>

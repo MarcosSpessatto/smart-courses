@@ -237,7 +237,10 @@ class CourseForm extends Component {
                                                 </select>
                                                 <label>Professor responsável</label>
                                             </div>
-                                            <SubmitButton></SubmitButton>
+                                            <SubmitButton
+                                                text="Salvar"
+                                                icon="send">
+                                            </SubmitButton>
                                         </div>
                                     </form>
                                     :

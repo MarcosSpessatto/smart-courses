@@ -8,6 +8,8 @@ import SectorReducers from '../Specialist/Sector/SectorReducers';
 import TeacherReducers from '../Specialist/Teacher/TeacherReducers';
 import EmployeeReducers from '../Specialist/Employee/EmployeeReducers';
 import CourseReducers from '../Specialist/Course/CourseReducers';
+import SearchCoursesReducers from '../User/Search/SearchCoursesReducers';
+import LoadingReducers from '../Common/Loading/LoadingReducers';
 
 const rootReducer = combineReducers({
     area: AreaReducers,
@@ -16,7 +18,9 @@ const rootReducer = combineReducers({
     sector: SectorReducers,
     teacher: TeacherReducers,
     employee: EmployeeReducers,
-    course: CourseReducers
+    course: CourseReducers,
+    search: SearchCoursesReducers,
+    loading: LoadingReducers
 });
 
 export default rootReducer;

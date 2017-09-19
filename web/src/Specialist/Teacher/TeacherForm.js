@@ -29,7 +29,10 @@ class TeacherForm extends Component {
                                 className="validate" />
                             <label for="name">Nome</label>
                         </div>
-                        <SubmitButton></SubmitButton>
+                        <SubmitButton
+                            text="Salvar"
+                            icon="send">
+                        </SubmitButton>
                     </div>
                 </form>
             </div>

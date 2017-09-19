@@ -14,8 +14,8 @@ class SubmitButton extends Component {
                 type="submit"
                 name="action"
                 onClick={this.dismissModal.bind(this)}>
-                Salvar
-                    <i className="material-icons right">send</i>
+                {this.props.text}
+                <i className="material-icons right">{this.props.icon}</i>
             </button>
         );
     }

@@ -36,7 +36,7 @@ class SectorForm extends Component {
         this.props.saveSector(this.props.sector);
     }
 
-    changeValue(event){
+    changeValue(event) {
         const actualState = this.props.sector;
 
         actualState[event.target.name] = event.target.value;
@@ -74,7 +74,7 @@ class SectorForm extends Component {
                                 <div className="input-field col s12 m12">
                                     <select
                                         onChange={this.changeValue.bind(this)}
-                                        name="area"> 
+                                        name="area">
                                         <option value="" disabled selected>Escolha a área</option>
                                         {
                                             this.renderAreaOptions()
@@ -82,7 +82,10 @@ class SectorForm extends Component {
                                     </select>
                                     <label>Área do setor</label>
                                 </div>
-                                <SubmitButton></SubmitButton>
+                                <SubmitButton
+                                    text="Salvar"
+                                    icon="send">
+                                </SubmitButton>
                             </div>
                         </form>
                         :
