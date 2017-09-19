@@ -2,7 +2,7 @@ const DatabaseService = require('../db/service/DatabaseService');
 const Employee = require('../employee/Employee');
 const moment = require('moment');
 
-class ModalityService {
+class SearchService {
     constructor() {
         this.DatabaseService = new DatabaseService();
     }
@@ -66,4 +66,4 @@ class ModalityService {
     }
 }
 
-module.exports = ModalityService;
+module.exports = SearchService;

@@ -1,6 +1,6 @@
 const SearchController = require('./SearchController');
 
-class ModalityRoutes {
+class SearchRoutes {
 
     constructor(router) {
         this.router = router;
@@ -16,4 +16,4 @@ class ModalityRoutes {
     }
 }
 
-module.exports = ModalityRoutes;
+module.exports = SearchRoutes;
