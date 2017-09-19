@@ -1,0 +1,16 @@
+db:
+  build: ./db
+  ports:
+  - "3306:3306"
+api:
+  build: ./api
+  ports:
+    - "3001:3001"
+  environment:
+     - DATABASE_HOST=db  
+  links:
+    - db
+web:
+  build: ./web
+  ports:
+   - "5000:5000"

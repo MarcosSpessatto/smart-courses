@@ -1,4 +1,4 @@
-import constants from '../../main/constants.json';
+import constants from '../../main/constants';
 import axios from 'axios';
 import { verifyResponse } from '../../Common/ResponseApi/ResponseApi';
 
