@@ -12,10 +12,10 @@ export default (state = INITIAL_STATE, action) => {
     else if (action.type === types.REMOVE_AREA) {
         return { ...state };
     }
-    else if (action.type === types.CHANGE_VALUE) {
+    else if (action.type === types.CHANGE_VALUE_AREA) {
         return { ...state, area: { name: action.payload.value } };
     }
-    else if (action.type === types.CLEAR) {
+    else if (action.type === types.CLEAR_AREA) {
         return { ...state, area: {} };
     }
 

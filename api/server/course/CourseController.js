@@ -77,6 +77,44 @@ class CourseController {
         }
     }
 
+    async finalize(request, response, next) {
+        const { course, employee } = request.body.courseEmployee;
+        let responseToSend;
+        try {
+            if (course && employee) {
+                await this.CourseService.finalize(course, employee);
+
+                responseToSend = this.ResponseService.makeResponse(HttpStatus.success, course);
+            }
+            else
+                responseToSend = this.ResponseService.makeResponse(HttpStatus.badRequest, ResponseMessages.verifyParameters);
+
+            response.json(responseToSend);
+        }
+        catch (error) {
+            next(error);
+        }
+    }
+
+    async subscribe(request, response, next) {
+        const { course, employee } = request.body.courseEmployee;
+        let responseToSend;
+        try {
+            if (course && employee) {
+                await this.CourseService.subscribe(course, employee);
+
+                responseToSend = this.ResponseService.makeResponse(HttpStatus.success, course);
+            }
+            else
+                responseToSend = this.ResponseService.makeResponse(HttpStatus.badRequest, ResponseMessages.verifyParameters);
+
+            response.json(responseToSend);
+        }
+        catch (error) {
+            next(error);
+        }
+    }
+
     async delete(request, response, next) {
         const courseId = request.params.id;
         let responseToSend;

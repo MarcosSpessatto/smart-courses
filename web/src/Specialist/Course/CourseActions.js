@@ -30,18 +30,18 @@ export const removeCourse = (courseId) => {
             .then(courseId => dispatch({ type: courseTypes.REMOVE_COURSE, payload: courseId }))
             .then(() => dispatch(getCourses()))
             .then(() => dispatch({type: dialogTypes.SHOW_DELETE_SUCCESS}))
-            .catch((err) => dispatch({ type:  dialogTypes.SHOW_ERROR }));
+            .catch((err) => dispatch({ type: dialogTypes.SHOW_FOREIGN_KEY_ERROR }));
     }
 }
 
 export const changeValue = (actualCourse) => {
     return dispatch => {
-        dispatch({ type: courseTypes.CHANGE_VALUE, payload: actualCourse });
+        dispatch({ type: courseTypes.CHANGE_VALUE_COURSE, payload: actualCourse });
     }
 }
 
 export const clear = () => {
     return dispatch => {
-        dispatch({ type: courseTypes.CLEAR });
+        dispatch({ type: courseTypes.CLEAR_COURSE });
     }
 }

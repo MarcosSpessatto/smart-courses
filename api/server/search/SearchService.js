@@ -34,7 +34,7 @@ class SearchService {
                                         where (s.id = ? or a.id = ?) 
                                         and c.id not in(select ce.course from ia.course_employee ce
                                                                 inner join ia.employee e on e.id = ce.employee
-                                                                where e.badge = ? and (ce.done = 1 or ce.validity < Now()))
+                                                                where e.badge = ? and (ce.done = 0 or (ce.done = 1 and ce.validity >= Now())))
                                         order by a.id, s.id, c.weight desc`;
         try {
             let result = await this.DatabaseService.execute(queryToGetEmployee, badge);
@@ -47,7 +47,7 @@ class SearchService {
             const coursesInProgress = await this.DatabaseService.execute(queryToGetCoursesInProgress, badge);
 
             return {
-                courses: coursesList.map(course => {
+                courses: convertToArrayIfNeeded(coursesList).map(course => {
                     course.start = moment(course.start).format('DD/MM/YYYY');
                     course.end = moment(course.end).format('DD/MM/YYYY');
 

@@ -25,7 +25,7 @@ class SearchCourses extends Component {
                                     <div className="row">
                                         <div className="input-field col s12 m12">
                                             <input
-                                                id="name"
+                                                id="employeeBadge"
                                                 type="text"
                                                 value={this.props.search.employeeBadge}
                                                 onChange={this.props.changeValue}

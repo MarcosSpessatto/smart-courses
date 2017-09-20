@@ -30,18 +30,18 @@ export const removeTeacher = (teacherId) => {
             .then(areaId => dispatch({ type: teacherTypes.REMOVE_TEACHER, payload: teacherId }))
             .then(() => dispatch(getTeachers()))
             .then(() => dispatch({type: dialogTypes.SHOW_DELETE_SUCCESS}))
-            .catch((err) => dispatch({ type:  dialogTypes.SHOW_ERROR }));
+            .catch((err) => dispatch({ type:  dialogTypes.SHOW_FOREIGN_KEY_ERROR }));
     }
 }
 
 export const changeValue = (event) => {
     return dispatch => {
-        dispatch({ type: teacherTypes.CHANGE_VALUE, payload: event.target });
+        dispatch({ type: teacherTypes.CHANGE_VALUE_TEACHER, payload: event.target });
     }
 }
 
 export const clear = () => {
     return dispatch => {
-        dispatch({ type: teacherTypes.CLEAR });
+        dispatch({ type: teacherTypes.CLEAR_TEACHER });
     }
 }

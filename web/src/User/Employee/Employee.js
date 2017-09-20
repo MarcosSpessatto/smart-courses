@@ -1,6 +1,8 @@
 import Component from 'inferno-component';
 import { connect } from 'inferno-redux';
 import { bindActionCreators } from 'redux';
+import { finalizeCourse } from './EmployeeActions';
+
 import './Employee.css';
 
 class Employee extends Component {
@@ -26,6 +28,13 @@ class Employee extends Component {
         );
     }
 
+    finalizeCourse(course, employee){
+        this.props.finalizeCourse({
+            course,
+            employee
+        })
+    }
+
     renderCoursesInProgress() {
         return (
             <ul>
@@ -36,7 +45,10 @@ class Employee extends Component {
                         .map((course, index) => (
                             <li key={index}>
                                 {course.name}
-                                <button class="waves-effect waves-light btn pulse margin-left">Concluir</button>
+                                <button
+                                    onClick={() => this.finalizeCourse(course, this.props.employee)}
+                                    className="waves-effect waves-light btn pulse margin-left">Concluir
+                                </button>
                             </li>
                         ))
                 }
@@ -51,12 +63,12 @@ class Employee extends Component {
                     this
                         .showEmployeeInfo()
                         ?
-                        <div class="col s12 m12" >
-                            <h4 class="header">{this.props.employee.name}</h4><strong>
+                        <div className="col s12 m12" >
+                            <h4 className="header">{this.props.employee.name}</h4><strong>
                                 <h5>Função: </h5></strong><p>{this.props.employee.function}</p>
-                            <div class="card horizontal">
-                                <div class="card-stacked">
-                                    <div class="card-content">
+                            <div className="card horizontal">
+                                <div className="card-stacked">
+                                    <div className="card-content">
                                         <strong>Cursos concluídos</strong>
                                         {
                                             this
@@ -88,5 +100,8 @@ const mapStateToProps = state => ({
     coursesInProgress: state.search.coursesInProgress
 });
 
+const mapDispatchToProps = dispatch => bindActionCreators({
+    finalizeCourse
+}, dispatch);
 
-export default connect(mapStateToProps)(Employee)
+export default connect(mapStateToProps, mapDispatchToProps)(Employee)

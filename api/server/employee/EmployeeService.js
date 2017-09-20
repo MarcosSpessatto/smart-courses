@@ -66,7 +66,15 @@ class EmployeeService {
     async delete(employeeId) {
         const query = 'delete from ia.employee where id = ?';
         try {
-            await this.DatabaseService.execute(query, employeeId);
+            const verifyCoursesEmployee = 'select * from ia.course_employee where employee = ?';
+
+            let coursesEmployee = await this.DatabaseService.execute(verifyCoursesEmployee, employeeId);
+            coursesEmployee = Array.isArray(coursesEmployee) ? coursesEmployee : [coursesEmployee];
+
+            if (coursesEmployee.length)
+                throw new Error('O registro possui registros filhos')
+            else
+                await this.DatabaseService.execute(query, employeeId);
 
             return employeeId;
         }

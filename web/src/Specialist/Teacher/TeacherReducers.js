@@ -12,10 +12,10 @@ export default (state = INITIAL_STATE, action) => {
     else if (action.type === types.REMOVE_TEACHER) {
         return { ...state };
     }
-    else if (action.type === types.CHANGE_VALUE) {
+    else if (action.type === types.CHANGE_VALUE_TEACHER) {
         return { ...state, teacher: { name: action.payload.value } };
     }
-    else if (action.type === types.CLEAR) {
+    else if (action.type === types.CLEAR_TEACHER) {
         return { ...state, teacher: {} };
     }
 

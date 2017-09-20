@@ -12,10 +12,10 @@ export default (state = INITIAL_STATE, action) => {
     else if (action.type === modalityTypes.REMOVE_MODALITY) {
         return { ...state };
     }
-    else if (action.type === modalityTypes.CHANGE_VALUE) {
+    else if (action.type === modalityTypes.CHANGE_VALUE_MODALITY) {
         return { ...state, modality: { type: action.payload.value } };
     }
-    else if (action.type === modalityTypes.CLEAR) {
+    else if (action.type === modalityTypes.CLEAR_MODALITY) {
         return { ...state, modality: {} };
     }
 

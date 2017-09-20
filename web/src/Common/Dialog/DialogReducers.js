@@ -8,5 +8,7 @@ export default (state = [], action) => {
         Materialize.toast(`Ops, ocorreu um erro...`, 4000);
     else if (action.type === dialogTypes.SHOW_DELETE_SUCCESS)
         Materialize.toast(`Excluído com sucesso`, 4000);
-    return state;
+    else if (action.type === dialogTypes.SHOW_FOREIGN_KEY_ERROR)
+        Materialize.toast(`O registro possui registros filhos`, 5000);
+        return state;
 }

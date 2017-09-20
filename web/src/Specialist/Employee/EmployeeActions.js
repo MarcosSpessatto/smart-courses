@@ -30,18 +30,18 @@ export const removeEmployee = (employeeId) => {
             .then(employeeId => dispatch({ type: employeeTypes.REMOVE_EMPLOYEE, payload: employeeId }))
             .then(() => dispatch(getEmployees()))
             .then(() => dispatch({type: dialogTypes.SHOW_DELETE_SUCCESS}))
-            .catch((err) => dispatch({ type:  dialogTypes.SHOW_ERROR }));
+            .catch((err) => dispatch({ type:  dialogTypes.SHOW_FOREIGN_KEY_ERROR }));
     }
 }
 
 export const changeValue = (actualEmployee) => {
     return dispatch => {
-        dispatch({ type: employeeTypes.CHANGE_VALUE, payload: actualEmployee });
+        dispatch({ type: employeeTypes.CHANGE_VALUE_EMPLOYEE, payload: actualEmployee });
     }
 }
 
 export const clear = () => {
     return dispatch => {
-        dispatch({ type: employeeTypes.CLEAR });
+        dispatch({ type: employeeTypes.CLEAR_EMPLOYEE });
     }
 }

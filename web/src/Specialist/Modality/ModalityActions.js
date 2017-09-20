@@ -30,18 +30,18 @@ export const removeModality = (modalityId) => {
             .then(modalityId => dispatch({ type: modalityTypes.REMOVE_MODALITY, payload: modalityId }))
             .then(() => dispatch(getModalities()))
             .then(() => dispatch({type: dialogTypes.SHOW_DELETE_SUCCESS}))
-            .catch((err) => dispatch({ type:  dialogTypes.SHOW_ERROR }));
+            .catch((err) => dispatch({ type:  dialogTypes.SHOW_FOREIGN_KEY_ERROR }));
     }
 }
 
 export const changeValue = (event) => {
     return dispatch => {
-        dispatch({ type: modalityTypes.CHANGE_VALUE, payload: event.target });
+        dispatch({ type: modalityTypes.CHANGE_VALUE_MODALITY, payload: event.target });
     }
 }
 
 export const clear = () => {
     return dispatch => {
-        dispatch({ type: modalityTypes.CLEAR });
+        dispatch({ type: modalityTypes.CLEAR_MODALITY });
     }
 }

@@ -30,18 +30,18 @@ export const removeSector = (sectorId) => {
             .then(sectorId => dispatch({ type: sectorTypes.REMOVE_SECTOR, payload: sectorId }))
             .then(() => dispatch(getSectors()))
             .then(() => dispatch({type: dialogTypes.SHOW_DELETE_SUCCESS}))
-            .catch((err) => dispatch({ type:  dialogTypes.SHOW_ERROR }));
+            .catch((err) => dispatch({ type:  dialogTypes.SHOW_FOREIGN_KEY_ERROR }));
     }
 }
 
 export const changeValue = (actualSector) => {
     return dispatch => {
-        dispatch({ type: sectorTypes.CHANGE_VALUE, payload: actualSector });
+        dispatch({ type: sectorTypes.CHANGE_VALUE_SECTOR, payload: actualSector });
     }
 }
 
 export const clear = () => {
     return dispatch => {
-        dispatch({ type: sectorTypes.CLEAR });
+        dispatch({ type: sectorTypes.CLEAR_SECTOR });
     }
 }

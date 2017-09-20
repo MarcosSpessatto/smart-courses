@@ -25,10 +25,10 @@ export default (state = INITIAL_STATE, action) => {
     else if (action.type === types.REMOVE_COURSE) {
         return { ...state };
     }
-    else if (action.type === types.CHANGE_VALUE) {
+    else if (action.type === types.CHANGE_VALUE_COURSE) {
         return { ...state, course: action.payload };
     }
-    else if (action.type === types.CLEAR) {
+    else if (action.type === types.CLEAR_COURSE) {
         return { ...state, course: {} };
     }
 

@@ -63,7 +63,15 @@ class ModalityService {
     async delete(modalityId) {
         const query = 'delete from ia.modality where id = ?';
         try {
-            await this.DatabaseService.execute(query, modalityId);
+            const verifyCourses = 'select * from ia.course where modality = ?';
+
+            let courses = await this.DatabaseService.execute(verifyCourses, modalityId);
+            courses = Array.isArray(courses) ? courses : [courses];
+
+            if (courses.length)
+                throw new Error('O registro possui registros filhos')
+            else
+                await this.DatabaseService.execute(query, modalityId);
 
             return modalityId;
         }

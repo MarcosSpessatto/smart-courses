@@ -12,10 +12,10 @@ export default (state = INITIAL_STATE, action) => {
     else if (action.type === types.REMOVE_SECTOR) {
         return { ...state };
     }
-    else if (action.type === types.CHANGE_VALUE) {
+    else if (action.type === types.CHANGE_VALUE_SECTOR) {
         return { ...state, sector: action.payload };
     }
-    else if (action.type === types.CLEAR) {
+    else if (action.type === types.CLEAR_SECTOR) {
         return { ...state, sector: {} };
     }
 

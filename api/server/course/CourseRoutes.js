@@ -21,6 +21,12 @@ class CourseRoutes {
         this.router.put('/course',
             this.CourseController.update.bind(this.CourseController));
 
+        this.router.put('/course/finalize',
+            this.CourseController.finalize.bind(this.CourseController));
+
+        this.router.put('/course/subscribe',
+            this.CourseController.subscribe.bind(this.CourseController)); 
+
         this.router.delete('/course/:id',
             this.CourseController.delete.bind(this.CourseController));
     }

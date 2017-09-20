@@ -1,5 +1,5 @@
 export const SAVE_COURSE = 'SAVE_COURSE';
 export const GET_COURSES = 'GET_COURSES';
 export const REMOVE_COURSE = 'REMOVE_COURSE';
-export const CHANGE_VALUE = 'CHANGE_VALUE';
-export const CLEAR = 'CLEAR';
+export const CHANGE_VALUE_COURSE = 'CHANGE_VALUE_COURSE';
+export const CLEAR_COURSE = 'CLEAR_COURSE';

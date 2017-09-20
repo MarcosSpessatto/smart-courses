@@ -29,6 +29,6 @@ export const searchCoursesByUser = (userBadge) => {
 
 export const changeValue = (event) => {
     return dispatch => {
-        dispatch({ type: searchCoursesTypes.CHANGE_VALUE, payload: event.target });
+        dispatch({ type: searchCoursesTypes.CHANGE_VALUE_SEARCH, payload: event.target });
     }
 }

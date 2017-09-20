@@ -1,5 +1,6 @@
 const Course = require('./Course');
 const DatabaseService = require('../db/service/DatabaseService');
+const moment = require('moment');
 
 class CourseService {
     constructor() {
@@ -69,10 +70,45 @@ class CourseService {
         }
     }
 
+    async finalize(course, employee) {
+        const query = 'Update ia.course_employee Set ? where course = ? and employee = ?';
+        try {
+            await this.DatabaseService.execute(query, [{ done: 1, validity: moment().add(1, 'year').format('YYYY-MM-DD') }, course.id, employee.id]);
+
+            return course;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+
+    async subscribe(course, employee) {
+        const query = 'Insert into ia.course_employee Set ?';
+        try {
+            await this.DatabaseService.execute(query, {
+                course: course.id,
+                employee: employee.id,
+                done: 0
+            });
+
+            return course;
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+
     async delete(courseId) {
         const query = 'delete from ia.course where id = ?';
         try {
-            await this.DatabaseService.execute(query, courseId);
+            const verifyCoursesEmployee = 'select * from ia.course_employee where course = ?';
+
+            let coursesEmployee = await this.DatabaseService.execute(verifyCoursesEmployee, courseId);
+            coursesEmployee = Array.isArray(coursesEmployee) ? coursesEmployee : [coursesEmployee];
+            if (coursesEmployee.length)
+                throw new Error('O registro possui registros filhos')
+            else
+                await this.DatabaseService.execute(query, courseId);
 
             return courseId;
         }

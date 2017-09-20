@@ -1,6 +1,7 @@
 import Component from 'inferno-component';
 import { connect } from 'inferno-redux';
 import { bindActionCreators } from 'redux';
+import { subscribe } from './CourseListActions';
 import Materialize from 'materialize-css';
 
 class CourseList extends Component {
@@ -24,6 +25,13 @@ class CourseList extends Component {
         Materialize.toast('Este curso estará bloqueado até que você conclua o anterior', 5000)
     }
 
+    subscribe(course) {
+        this.props.subscribe({
+            course,
+            employee: this.props.employee
+        });
+    }
+
     renderBody() {
         return this
             .props
@@ -40,7 +48,9 @@ class CourseList extends Component {
                     {
                         index === 0 && !this.props.coursesInProgress.length
                             ?
-                            <a class="waves-effect waves-light btn pulse">Inscrever</a>
+                            <a
+                                onClick={() => this.subscribe(course)}
+                                class="waves-effect waves-light btn pulse">Inscrever</a>
                             :
                             <a class="btn red" onClick={this.showBlockDialog}>
                                 <i class="material-icons">block</i>
@@ -104,8 +114,13 @@ class CourseList extends Component {
 const mapStateToProps = state => ({
     recommendedCourses: state.search.courses,
     userSearched: state.search.userSearched,
-    coursesInProgress: state.search.coursesInProgress
+    coursesInProgress: state.search.coursesInProgress,
+    employee: state.search.employee
 });
 
+const mapDispatchToProps = dispatch => bindActionCreators({
+    subscribe
+}, dispatch);
 
-export default connect(mapStateToProps)(CourseList)
+
+export default connect(mapStateToProps, mapDispatchToProps)(CourseList)

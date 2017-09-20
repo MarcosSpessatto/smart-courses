@@ -1,4 +1,5 @@
-import * as types from './SearchCoursesActionTypes';
+
+import * as types from './EmployeeActionTypes';
 
 const INITIAL_STATE = {
     employeeBadge: '',
@@ -11,7 +12,7 @@ const INITIAL_STATE = {
 };
 
 export default (state = INITIAL_STATE, action) => {
-    if (action.type === types.SEARCH_COURSES) {
+    if (action.type === types.FINALIZE_COURSE) {
         return {
             ...state,
             employee: action.payload.employee,
@@ -21,12 +22,6 @@ export default (state = INITIAL_STATE, action) => {
             coursesLength: action.payload.courses.length,
             userSearched: action.payload.userSearched
         };
-    }
-    else if (action.type === types.FINALIZE_COURSE) {
-        return {
-            ...state,
-            coursesInProgress: []
-        }
     }
     else if (action.type === types.CHANGE_VALUE_SEARCH) {
         return { ...state, employeeBadge: action.payload.value };

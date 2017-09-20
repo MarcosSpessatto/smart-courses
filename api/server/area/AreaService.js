@@ -63,7 +63,18 @@ class AreaService {
     async delete(areaId) {
         const query = 'delete from ia.area where id = ?';
         try {
-            await this.DatabaseService.execute(query, areaId);
+            const verifyCourses = 'select * from ia.course where area = ?';
+            const verifySector = 'select * from ia.sector where area = ?';
+
+            let courses = await this.DatabaseService.execute(verifyCourses, areaId);
+            let sectors = await this.DatabaseService.execute(verifySector, areaId);
+            courses = Array.isArray(courses) ? courses : [courses];
+            sectors = Array.isArray(sectors) ? sectors : [sectors];
+
+            if (courses.length && sectors.length)
+                throw new Error('O registro possui registros filhos')
+            else
+                await this.DatabaseService.execute(query, areaId);
 
             return areaId;
         }

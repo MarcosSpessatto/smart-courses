@@ -9,7 +9,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-const allowCrossDomain = (req, res, next)  => {
+const allowCrossDomain = (req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
@@ -25,4 +25,7 @@ app.use(allowCrossDomain);
 
 require('./modules')(app);
 
+app.use((err, request, response, next) => {
+    response.status(err.status || 500).json({ message: err.message });
+});
 module.exports = app;
