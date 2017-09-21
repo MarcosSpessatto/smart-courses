@@ -1,4 +1,4 @@
-# Example of course recommendation system using InfernoJS With Redux, Docker, NodeJs and MySQL
+#### Example of course recommendation system using InfernoJS With Redux, Docker, NodeJs and MySQL
 ### Prerequisites
 Docker and Docker-compose
 ### Run
