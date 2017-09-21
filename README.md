@@ -4,7 +4,7 @@ Docker and Docker-compose
 ### Run
 - Change the api address, on /web/src/main/constants/constants.json, put the docker-machine ip (default is 192.168.99.100)
 - docker-compose up -d
-- Access the address of your docker-machine ip on browser  on port 5000
+- Access the address of your docker-machine ip on browser on port 5000
 
 ## Or
 #### Installing 
@@ -20,6 +20,7 @@ Docker and Docker-compose
 - npm install
 - Change the api address, on /web/src/main/constants/constants.json, put localhost:3001
 - npm start
+- Access the address of your docker-machine ip on browser on port 3000
 
 ### Developed only for academic purposes of computer science course.
 #### Technologies
